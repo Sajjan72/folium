@@ -6,7 +6,7 @@
 
 import folium
 import MySQLdb
-db = MySQLdb.connect("localhost","root","password","testdb" )
+db = MySQLdb.connect("localhost","root","","folium" )
 from folium.plugins import Draw, Fullscreen
 cursor = db.cursor()
 m = folium.Map(location=[-27.228989, -48.36525], zoom_start=12)
@@ -31,7 +31,7 @@ gpd = geopandas.read_file(
 
 gpd['geometry'][0]
  try:
-    cursor.execute("""INSERT INTO anooog1 VALUES (%s)""",('geometry'][0]))
+    cursor.execute("""INSERT INTO draw_data VALUES (%s)""",('geometry'][0]))
     db.commit()
  except:     
      db.rollback()
